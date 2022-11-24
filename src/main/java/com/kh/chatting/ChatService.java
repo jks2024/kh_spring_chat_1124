@@ -28,8 +28,10 @@ public class ChatService {
     public ChatRoom findRoomById(String roomId) {
         return chatRooms.get(roomId);
     }
+
     public ChatRoom createRoom(String name) {
         String randomId = UUID.randomUUID().toString();
+        log.info("UUID : " + randomId);
         ChatRoom chatRoom = ChatRoom.builder()
                 .roomId(randomId)
                 .name(name)
@@ -44,7 +46,4 @@ public class ChatService {
             log.error(e.getMessage(), e);
         }
     }
-
-
-
 }
